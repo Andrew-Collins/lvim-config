@@ -29,8 +29,9 @@ M.set_terminal_keymaps = function()
 end
 M.set_hop_keymaps = function()
   local opts = { noremap = true, silent = true }
-  vim.api.nvim_set_keymap("n", "s", ":HopChar2MW<cr>", opts)
-  vim.api.nvim_set_keymap("n", "S", ":HopWordMW<cr>", opts)
+  vim.api.nvim_set_keymap("", "S", "<cmd>HopChar2MW<cr>", opts)
+  vim.api.nvim_set_keymap("", "s", "<cmd>HopWordMW<cr>", opts)
+  vim.api.nvim_set_keymap("", "L", "<cmd>HopLineMW<cr>", opts)
   vim.api.nvim_set_keymap(
     "n",
     "f",
