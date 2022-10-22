@@ -8,14 +8,12 @@ lvim.use_icons = true
 lvim.leader = "space"
 -- Customization
 -- =========================================
--- lvim.builtin.alpha.active = true
--- lvim.builtin.alpha.mode = "dashboard"
--- lvim.builtin.sidebar = { active = true } -- enable/disable sidebar
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.mason.automatic_installation = { exclude = { "clangd" } }
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
@@ -29,7 +27,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.rainbow.enable = true
 -- Language Specific
 -- =========================================
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd", "rust_analyzer" })
+lvim.lsp.installer.setup.automatic_installation.exclude = { "clangd" }
+local opts = { cmd = { '/root/xtensa-esp32-elf-clang/bin/clangd' } } -- check the lspconfig documentation for a list of all possible options
+require("lvim.lsp.manager").setup("clangd", opts)
+
+-- require 'lspconfig'.clangd.setup { cmd = { '/root/xtensa-esp32-elf-clang/bin/clangd' } }
+
 -- Debugging
 -- =========================================
 if lvim.builtin.dap.active then
