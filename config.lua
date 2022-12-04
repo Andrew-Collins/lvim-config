@@ -11,7 +11,6 @@ lvim.leader = "space"
 -- lvim.builtin.alpha.active = true
 -- lvim.builtin.alpha.mode = "dashboard"
 -- lvim.builtin.sidebar = { active = true } -- enable/disable sidebar
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
